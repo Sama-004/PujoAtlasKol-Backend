@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { MetroModule } from './metro/metro.module';
 import { DatabaseModule } from 'db/database.module';
 import { EventModule } from './event/event.module';
+import { PujoModule } from './pujo/pujo.module';
 
 @Module({
-  imports: [DatabaseModule, MetroModule, EventModule],
+  imports: [DatabaseModule, MetroModule, EventModule, PujoModule],
   controllers: [AppController],
   providers: [AppService],
 })

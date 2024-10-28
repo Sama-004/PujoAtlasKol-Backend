@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Pujo } from 'src/pujo/entity/pujo.entity';
 
 @Entity()
 export class Metro {
@@ -25,10 +26,13 @@ export class Metro {
 
   @Column('timestamp')
   updated_at: Date;
+
+  @OneToMany(() => Pujo, (pujo) => pujo.metro)
+  pujos: Pujo[];
 }
 
 export class MetroDto {
-  id: string;  // Change to string type
+  id: string; // Change to string type
   lat: number;
   lon: number;
   name: string;
